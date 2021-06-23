@@ -1,9 +1,9 @@
 package com.example.springapp.dao.entities;
 
+import java.time.*;
 import javax.persistence.*;
 
-@Entity
-@Table(name = "users")
+@MappedSuperclass
 public class UserEntity {
 
     @Id
@@ -12,6 +12,10 @@ public class UserEntity {
     @Column(name = "first_name")
     private String firstName;
     private String lastName;
+    private int age;
+    @OneToOne
+    private AddressEntity address;
+    private LocalDateTime dateCreated;
 
     public Integer getId() {
         return id;
@@ -35,5 +39,21 @@ public class UserEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public AddressEntity getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressEntity address) {
+        this.address = address;
     }
 }
