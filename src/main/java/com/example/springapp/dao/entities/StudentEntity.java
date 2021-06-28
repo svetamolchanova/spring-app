@@ -3,7 +3,9 @@ package com.example.springapp.dao.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "student")
+@Table(name = "student_table")
+//@PrimaryKeyJoinColumn(name = "student_id")
+//@DiscriminatorValue("3")
 public class StudentEntity extends UserEntity {
 
     private String university;

@@ -1,8 +1,9 @@
-package com.example.springapp.service;
+package com.example.springapp.service.impl;
 
 import com.example.springapp.controller.dto.*;
 import com.example.springapp.dao.*;
 import com.example.springapp.dao.entities.*;
+import com.example.springapp.service.*;
 import java.util.*;
 import org.springframework.stereotype.*;
 
@@ -10,11 +11,11 @@ import org.springframework.stereotype.*;
 public class UserServiceImpl implements UserService {
 
     //private UserRepository dao;
-    private EmployeeRepository employeeRepository;
-
-    public UserServiceImpl(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+//    private EmployeeRepository employeeRepository;
+//
+//    public UserServiceImpl(EmployeeRepository employeeRepository) {
+//        this.employeeRepository = employeeRepository;
+//    }
 
 //    @Override
 //    public UserDto createUser(UserDto dto) {
@@ -56,12 +57,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto createUser(UserDto dto) {
-        EmployeeEntity userEntity = new EmployeeEntity();
-        userEntity.setFirstName(dto.getFirstName());
-        userEntity.setLastName(dto.getName());
-        userEntity.setCompany(dto.getCompany());
-        employeeRepository.save(userEntity);
+//        EmployeeEntity userEntity = new EmployeeEntity();
+//        userEntity.setFirstName(dto.getFirstName());
+//        userEntity.setLastName(dto.getName());
+//        userEntity.setCompany(dto.getCompany());
+//        employeeRepository.save(userEntity);
 
-        return dto;
+        return null;
     }
 }

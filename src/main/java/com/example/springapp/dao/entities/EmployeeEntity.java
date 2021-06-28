@@ -3,7 +3,9 @@ package com.example.springapp.dao.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee_table")
+//@PrimaryKeyJoinColumn(name = "employee_id")
+//@DiscriminatorValue("2")
 public class EmployeeEntity extends UserEntity {
 
     private String company;
