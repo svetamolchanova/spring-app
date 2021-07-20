@@ -8,4 +8,8 @@ public interface StudentService {
     List<StudentDto> getStudents(String name);
 
     StudentDto getStudent(AddressDto dto);
+
+    StudentDto getStudent(Integer id);
+
+    void deleteStudent(Integer id);
 }

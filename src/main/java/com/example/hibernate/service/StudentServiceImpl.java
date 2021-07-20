@@ -32,6 +32,16 @@ public class StudentServiceImpl implements StudentService {
             student.setName(studentEntity.getName());
         }
         return student;
+    }
 
+    @Override
+    public StudentDto getStudent(Integer id) {
+        return new StudentDto();
+    }
+
+    @Override
+    public void deleteStudent(Integer id) {
+        //StudentEntity student = studentRepository.getById(id);
+        studentRepository.deleteById(id);
     }
 }
