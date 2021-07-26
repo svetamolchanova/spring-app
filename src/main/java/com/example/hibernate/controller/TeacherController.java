@@ -3,6 +3,7 @@ package com.example.hibernate.controller;
 import com.example.hibernate.controller.dto.*;
 import com.example.hibernate.dao.entities.*;
 import com.example.hibernate.service.*;
+import java.nio.file.*;
 import java.util.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class TeacherController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TeacherDto>> getTeacher() {
+    public ResponseEntity<List<TeacherDto>> getTeacher() throws AccessDeniedException {
         return new ResponseEntity<>(teacherService.getTeachers(), HttpStatus.OK);
     }
 }

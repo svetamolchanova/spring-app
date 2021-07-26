@@ -2,9 +2,14 @@ package com.example.hibernate.controller;
 
 import com.example.hibernate.controller.dto.*;
 import com.example.hibernate.service.*;
+import io.swagger.annotations.*;
+import java.net.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import static javax.servlet.http.HttpServletResponse.SC_OK;
+
+@Api(tags = "Student API")
 @RestController
 @RequestMapping("/students")
 public class StudentController {
@@ -15,6 +20,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    @ApiResponses(value = {@ApiResponse(code = SC_OK, message = "ok")})
     @PostMapping
     public ResponseEntity<StudentDto> getStudent(@RequestBody AddressDto dto) {
         return new ResponseEntity<>(studentService.getStudent(dto), HttpStatus.OK);

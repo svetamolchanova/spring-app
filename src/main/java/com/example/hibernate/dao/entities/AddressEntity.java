@@ -3,6 +3,10 @@ package com.example.hibernate.dao.entities;
 import javax.persistence.*;
 import lombok.*;
 
+/**
+ * @author Svetlana M.
+ * @version 1.0
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -31,10 +35,19 @@ public class AddressEntity {
         this.city = city;
     }
 
+    /**
+     * getting street value
+     * @return string street
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     * @deprecated
+     * set value of street {@link com.example.hibernate.dao.entities.AddressEntity#street}
+     * @param street
+     */
     public void setStreet(String street) {
         this.street = street;
     }

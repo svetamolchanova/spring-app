@@ -3,8 +3,11 @@ package com.example.hibernate.service;
 import com.example.hibernate.controller.dto.*;
 import com.example.hibernate.dao.*;
 import com.example.hibernate.dao.entities.*;
+import com.example.hibernate.exception.*;
 import java.util.*;
+import org.springframework.http.*;
 import org.springframework.stereotype.*;
+import org.springframework.web.server.*;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -21,15 +24,29 @@ public class StudentServiceImpl implements StudentService {
         return null;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public StudentDto getStudent(AddressDto dto) {
         AddressEntity address = new AddressEntity(dto.getId(), dto.getCity(), dto.getStreet());
         StudentDto student = null;
-        StudentEntity studentEntity = studentRepository.findByAddressCityAndAddressStreet(dto.getCity(), dto.getStreet()).orElse(null);
-        if (Objects.nonNull(studentEntity)) {
-            student = new StudentDto();
-            student.setId(studentEntity.getId());
-            student.setName(studentEntity.getName());
+        try {
+//            StudentEntity studentEntity = studentRepository.findByAddressCityAndAddressStreet(dto.getCity(), dto.getStreet()).orElse(null);
+//            if (Objects.nonNull(studentEntity)) {
+//                student = new StudentDto();
+//                student.setId(studentEntity.getId());
+//                student.setName(studentEntity.getName());
+//            }
+            if (Objects.isNull(student)) {
+                throw new ResourceNotFound();
+            }
+        } catch (ResourceNotFound e) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "NOT FOUND", e
+            );
         }
         return student;
     }
