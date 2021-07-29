@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.*;
 @Getter
 @Setter
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class ResourceNotFound extends RuntimeException {
+public class ResourceNotFoundException extends RuntimeException {
 
     private LocalDateTime date;
 
-    public ResourceNotFound() {
+    public ResourceNotFoundException() {
         this.setDate(LocalDateTime.now());
     }
 
-    public ResourceNotFound(String message) {
+    public ResourceNotFoundException(String message) {
         super(message);
         this.setDate(LocalDateTime.now());
     }

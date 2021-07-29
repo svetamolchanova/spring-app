@@ -8,4 +8,6 @@ public interface TeacherService {
     void createTeacher(TeacherDto dto);
 
     List<TeacherDto> getTeachers();
+
+    TeacherDto getTeacher(Long id);
 }

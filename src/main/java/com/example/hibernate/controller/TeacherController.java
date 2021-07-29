@@ -25,8 +25,13 @@ public class TeacherController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TeacherDto>> getTeacher() throws AccessDeniedException {
+    public ResponseEntity<List<TeacherDto>> getTeacher() {
         return new ResponseEntity<>(teacherService.getTeachers(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TeacherDto> getTeacher(@PathVariable Long id) {
+        return new ResponseEntity<>(teacherService.getTeacher(id), HttpStatus.OK);
     }
 }
 

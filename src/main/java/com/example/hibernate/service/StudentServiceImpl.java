@@ -41,9 +41,9 @@ public class StudentServiceImpl implements StudentService {
 //                student.setName(studentEntity.getName());
 //            }
             if (Objects.isNull(student)) {
-                throw new ResourceNotFound();
+                throw new ResourceNotFoundException();
             }
-        } catch (ResourceNotFound e) {
+        } catch (ResourceNotFoundException e) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "NOT FOUND", e
             );

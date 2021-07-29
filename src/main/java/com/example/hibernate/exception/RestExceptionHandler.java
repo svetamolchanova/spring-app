@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFound.class)
-    public ResponseEntity<ErrorResponse> handleResourceException(ResourceNotFound ex) {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleResourceException(ResourceNotFoundException ex) {
         ErrorResponse error = new ErrorResponse();
         error.setStatus(HttpStatus.BAD_REQUEST.value());
         error.setError(HttpStatus.BAD_REQUEST.getReasonPhrase());
